@@ -52,7 +52,7 @@ class Application < Sinatra::Base
 
   before do
     redirect to('/') unless request.ip == "127.0.0.1" 
-    env["rack.errors"] = error_logger
+    #env["rack.errors"] = error_logger
     headers["picat"] = "loves ruby"
   end
 
@@ -68,7 +68,7 @@ class Application < Sinatra::Base
     if server.respond_to? :threaded=
       server.threaded = settings.threaded
     end
-    use ::Rack::CommonLogger, access_logger
+    #use ::Rack::CommonLogger, access_logger
     helpers  Sinatra::App::ApplicationHelpers
     register Sinatra::App::Controllers::Index
     register Sinatra::App::Controllers::About

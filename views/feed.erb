@@ -1,8 +1,11 @@
 <div class="container">
   <div class="col-xs-12">
     <h1>Feed</h1>
-    <hr>
-    <p>Boilerplate sinatra code, because lol</p>
+    <% @capture_sample.each do |packet| %>
+      <% packet_info = PacketFu::Packet.parse(packet) %>
+      <hr>
+      <p>Source: <%= packet_info.ip_saddr %>  Destination: <%= packet_info.ip_daddr %></p>
+    <% end %>
   </div>
 </div>
 
