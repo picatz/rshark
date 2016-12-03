@@ -4,6 +4,7 @@ module Sinatra
       module Feed 
         def self.registered(app)
           app.get '/feed' do
+            redirect to('/') unless is_authenticated?
             iface = PacketFu::Utils.default_int
             cap = PacketFu::Capture.new(:iface => iface)
             cap.start

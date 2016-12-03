@@ -4,6 +4,7 @@ module Sinatra
       module Ifconfig 
         def self.registered(app)
           app.get '/ifconfig' do
+            redirect to('/') unless is_authenticated? 
             @config = PacketFu::Utils.ifconfig
             erb :ifconfig
           end
