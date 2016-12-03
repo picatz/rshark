@@ -17,6 +17,7 @@ require_relative 'application/user'
 require_relative 'controllers/index'
 require_relative 'controllers/about'
 require_relative 'controllers/feed'
+require_relative 'controllers/ifconfig'
 require_relative 'controllers/sessions'
 require_relative 'controllers/errors'
 
@@ -72,6 +73,7 @@ class Application < Sinatra::Base
     register Sinatra::App::Controllers::Index
     register Sinatra::App::Controllers::About
     register Sinatra::App::Controllers::Feed
+    register Sinatra::App::Controllers::Ifconfig
     register Sinatra::App::Controllers::Sessions
     register Sinatra::App::Controllers::Errors
   end 

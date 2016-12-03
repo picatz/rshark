@@ -1,13 +1,13 @@
 module Sinatra
   module App
     module Controllers
-      module Feed 
+      module Ifconfig 
         def self.registered(app)
-          app.get '/feed' do
-            binding.pry
+          app.get '/ifconfig' do
             iface = PacketFu::Utils.default_int
-            
-            erb :feed
+            config = PacketFu::Utils.ifconfig(iface)
+            binding.pry  
+            #erb :feed
           end
         end
       end
