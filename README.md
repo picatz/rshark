@@ -10,6 +10,10 @@ This web application utilizes sinatra, a DSL for quickly creating web applicatio
 
 Boostrap 3.3.7 was choosen to act as our front-end framework to help thing look pretty with ease. Moreover, it's pretty much the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web -- and so, we thought would be a perfect platform to add some style to packet analysis..
 
+### Packetfu
+
+This application relies heavily on the work done by Tod Beardsley and the awesome contributors to the Packetfu ruby gem. It's an awesome library for reading and writing packets to an interface or to a libpcap-formatted file; and, in our case, allows us to inspect and anaylze packet information via an intuitive Ruby: API. .
+
 ## Installation
 
 Add this line to your application's Gemfile:
