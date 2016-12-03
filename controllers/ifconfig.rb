@@ -4,9 +4,7 @@ module Sinatra
       module Ifconfig 
         def self.registered(app)
           app.get '/ifconfig' do
-            iface = PacketFu::Utils.default_int
-            @config = PacketFu::Utils.ifconfig(iface)
-            #binding.pry  
+            @config = PacketFu::Utils.ifconfig
             erb :ifconfig
           end
         end
