@@ -15,7 +15,7 @@ Boostrap 3.3.7 was choosen to act as our front-end framework to help thing look 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sinatra_boilerplate'
+gem 'rshark'
 ```
 
 And then execute:
@@ -24,7 +24,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sinatra_boilerplate
+    $ gem install rshark
 
 ## Usage
 
