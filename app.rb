@@ -80,6 +80,8 @@ class Application < Sinatra::Base
 
   def self.run!
     super do |server|
+      # print out that sharky shark ( if we haz him/her )!
+      File.readlines("sharky.txt").each {|line| puts line} if File.file?("sharky.txt")
       # stuff before server is started
     end
   end
