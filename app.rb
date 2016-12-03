@@ -49,7 +49,8 @@ class Application < Sinatra::Base
   end
   error_logger = ::Logger.new(error_log)
 
-  before do 
+  before do
+    redirect to('/') unless request.ip == "127.0.0.1" 
     env["rack.errors"] = error_logger
     headers["picat"] = "loves ruby"
   end
