@@ -10,6 +10,11 @@
     <hr>
     <h3>Local Ip Address</h3>
     <p><%= @config[:ip_saddr] %></p>
+    <% if @config[:ip4_obj] %>
+      <hr>
+      <h3>Reverse Lookup Address</h3>
+      <p><%= @config[:ip4_obj].reverse %></p>
+    <% end%>
   </div>
 </div>
 
