@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h1>Capturing Packets</h1>
+    <hr>
+    <form action='/capture' method='post' enctype='multipart/form-data'>
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-filter"></i>
+          </span>
+          <input class="form-control" placeholder="BPF Syntax" name="bpf" type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-scissors"></i>
+          </span>
+          <input class="form-control" placeholder="Packet Capture Limit" name="cap_limit" type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-open-file"></i>
+          </span>
+          <input class="form-control" placeholder="Save To File" name="save_file" type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Capture Packets">
+      </div>
+
+    </form>
+  </div>
+</div>
+

@@ -26,6 +26,12 @@
         <hr>
         <h2>Mac Address Statistics</h2>
         <%= pie_chart(@mac_addr_stats, height: "420px") %>
+        <hr>
+        <h2>Eth Proto Statistics</h2>
+        <%= pie_chart(@eth_proto_stats, height: "420px") %>
+        <hr>
+        <h2>IP TTL Statistics</h2>
+        <%= pie_chart(@ip_ttl_stats, height: "420px") %>
       </div>
     <% end%>
   </div>

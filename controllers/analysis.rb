@@ -17,7 +17,6 @@ module Sinatra
 
           app.get '/statistics' do
             redirect to('/') unless is_authenticated?
-            #binding.pry
             erb :statistics
           end
 
@@ -25,20 +24,24 @@ module Sinatra
             redirect to('/') unless is_authenticated?
             if params[:file]
               if File.extname(params[:file][:filename]).downcase == ".pcap"
-                @protocol_stats = Hash.new(0) 
-                @mac_addr_stats = Hash.new(0) 
-                @ip_addr_stats  = Hash.new(0) 
+                @protocol_stats  = Hash.new(0) 
+                @mac_addr_stats  = Hash.new(0) 
+                @eth_proto_stats = Hash.new(0) 
+                @ip_addr_stats   = Hash.new(0) 
+                @ip_ttl_stats    = Hash.new(0) 
                 PacketFu::PcapFile.read_packets(params[:file][:tempfile]) do |packet|
                   @protocol_stats[packet.proto.last.to_sym] += 1
                   begin
                     @mac_addr_stats[packet.eth_daddr] += 1
                     @mac_addr_stats[packet.eth_saddr] += 1
+                    @eth_proto_stats[packet.eth_proto_readable] += 1
                   rescue
                     # :(
                   end
                   begin
-                    @ip_addr_stats[packet.ip_saddr]   += 1 
-                    @ip_addr_stats[packet.ip_daddr]   += 1
+                    @ip_addr_stats[packet.ip_saddr] += 1 
+                    @ip_addr_stats[packet.ip_daddr] += 1
+                    @ip_ttl_stats[packet.ip_sum]    += 1
                   rescue
                     # :(
                   end
@@ -49,44 +52,49 @@ module Sinatra
             else
               @failed = "No file given to upload."
             end
+            binding.pry
             erb :statistics
           end
 
           app.get '/capture' do
             redirect to('/') unless is_authenticated?
-            iface = PacketFu::Utils.default_int
-            unless session[:capture_file]
-              iface = PacketFu::Utils.default_int
-              session[:capture_file] = PacketFu::Capture.new(:iface => iface)
-            end
             erb :capture
           end
 
-          app.post '/capture/filter' do
+          app.post '/capture' do
             redirect to('/') unless is_authenticated?
-            binding.pry
-            unless params["iface"].empty?
+            params.keys.each { |key| params[key].empty? ? params[key] = false : true }
+            if params['iface']
               begin
                 session[:capture_file] = PacketFu::Capture.new(:iface => params["iface"])
               rescue
-                @failed = "Unable to set network face."
+                @failed = "Unable to set network interface."
               end
+            else
+              session[:capture_file] = PacketFu::Capture.new
             end
 
-            unless params["bpf"].empty?
+            if params['bpf']
               begin
-                binding.pry
-                session[:capture_file].bpf(:filter => params["bpf"])
+                session[:capture_file].bpf(:filter => params['bpf'])
               rescue
-                binding.pry
-                @failed = "Invalid Berkely Packet Filter Syntax"
+                @failed = "Unable to set network interface / set berekley packet filter."
               end
             end
-            binding.pry
-            erb :capture
-          end
-        end
 
+            # still need to manage other filters...
+            session[:capture_file].start
+            #binding.pry
+            @cap = session[:capture_file]
+            erb :capturing
+          end
+
+          app.get '/capturing' do 
+            @cap = session[:capture_file]
+            erb :capturing
+          end
+
+        end
       end
     end
   end
