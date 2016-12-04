@@ -15,11 +15,11 @@
           </div>
           <div id="collapse<%=count%>" class="panel-collapse collapse">
             <ul class="list-group">
-              <% packet_info.protocol.each do |protocol| %>
-                <li class="list-group-item">
-                  <%=protocol%>
-                </li>
-              <% end %>
+              <li class="list-group-item">
+                <p>
+                <%= packet_info.dissect.split('------------------------------------------------------------------')[0].gsub("\n",'<br>')%>
+                </p>
+              </li>
             </ul>
           </div>
         </div>
