@@ -17,7 +17,7 @@ require_relative 'application/user'
 # Require Custom Application Controllers
 require_relative 'controllers/index'
 require_relative 'controllers/about'
-require_relative 'controllers/feed'
+require_relative 'controllers/analysis'
 require_relative 'controllers/utilities'
 require_relative 'controllers/sessions'
 require_relative 'controllers/errors'
@@ -73,7 +73,7 @@ class Application < Sinatra::Base
     helpers  Sinatra::App::ApplicationHelpers
     register Sinatra::App::Controllers::Index
     register Sinatra::App::Controllers::About
-    register Sinatra::App::Controllers::Feed
+    register Sinatra::App::Controllers::Analysis
     register Sinatra::App::Controllers::Utilities
     register Sinatra::App::Controllers::Sessions
     register Sinatra::App::Controllers::Errors
