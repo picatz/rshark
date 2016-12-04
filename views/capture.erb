@@ -1,36 +1,67 @@
 <div class="container">
-  <div class="col-xs-12">
-    <h1>Capture Packets</h1>
-    <hr>
-    <form action='/capture/filter' method='post' enctype='multipart/form-data'>
-      <div class="form-group">
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-filter"></i>
-          </span>
-          <input class="form-control" placeholder="BPF Syntax" name="bpf" type="text" autofocus>
-          <span class="input-group-btn">
-            <input type="submit" class="btn btn-lg btn-default" value="Set Filter">
-          </span>
-        </div>
-      </div>
+	<div class="col-xs-12">
+		<h1>Capture Packets</h1>
+		<hr>
+		<h4>Optional filters and options:</h4>
+		<form action='/capture' method='post' enctype='multipart/form-data'>
+			<div class="form-group">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-filter"></i>
+					</span>
+					<input class="form-control" placeholder="BPF Syntax (optional)" name="bpf" type="text">
+				</div>
+			</div>
 
-      <div class="form-group">
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-wrench"></i>
-          </span>
-          <input class="form-control" placeholder="Network Interface" name="iface" type="text" autofocus>
-          <span class="input-group-btn">
-            <input type="submit" class="btn btn-lg btn-default" value="Set Interface">
-          </span>
-        </div>
-      </div>
+			<div class="form-group">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-wrench"></i>
+					</span>
+					<input class="form-control" placeholder="Network Interface (optional)" name="iface" type="text">
+				</div>
+			</div>
 
-    </form>
-  </div>
+			<div class="form-group">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-scissors"></i>
+					</span>
+					<input class="form-control" placeholder="Snap Length (optional)" name="snaplen" type="text">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-time"></i>
+					</span>
+					<input class="form-control" placeholder="Timeout (optional)" name="timeout" type="text">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-time"></i>
+					</span>
+					<input class="form-control" placeholder="Timeout (optional)" name="timeout" type="text">
+				</div>
+			</div>
+
+			<div class="form-group has-feedback">
+				<div class="checkbox">
+					<label><input type="checkbox" name="promiscuous" value="true"> 
+						<span class="glyphicon glyphicon-eye-open"></span>&nbsp; Promiscuous Mode</span>
+					</label>
+				</div>		
+			</div>
+
+			<div class="form-group">
+				<input type="submit" class="btn btn-lg btn-primary btn-block" value="Capture Packets">
+			</div>
+
+		</form>
+	</div>
 </div>
-
-
-
 

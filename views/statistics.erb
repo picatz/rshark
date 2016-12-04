@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <h1>Statistics</h1>
     <hr>
-    <% unless @stats %>
+    <% unless @protocol_stats %>
       <form action='/statistics' method='post' enctype='multipart/form-data'>
         <div class="form-group">
           <div class="input-group input-group-lg">
@@ -17,7 +17,16 @@
         </div>
       </form>
     <% else %>
-      <%= pie_chart(@stats, id: "General Packet Summary", height: "600px") %>
+      <div class='text-center'>
+        <h2>Protocol Statistics</h2>
+        <%= pie_chart(@protocol_stats, height: "420px")%>
+        <hr>
+        <h2>IP Address Statistics</h2>
+        <%= pie_chart(@ip_addr_stats, height: "420px") %>
+        <hr>
+        <h2>Mac Address Statistics</h2>
+        <%= pie_chart(@mac_addr_stats, height: "420px") %>
+      </div>
     <% end%>
   </div>
 </div>
