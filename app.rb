@@ -14,6 +14,7 @@ require 'chartkick'
 require 'sinatra/reloader'
 require 'pcaprub'
 require 'sinatra/streaming'
+require 'net/ping'
 
 # Require Custom Application Files
 require_relative 'application/user'

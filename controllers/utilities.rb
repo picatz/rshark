@@ -29,7 +29,17 @@ module Sinatra
 
           app.get '/pingable' do
             redirect to('/') unless is_authenticated? 
-            "Ping tool!"
+            erb :ping_tool
+          end
+          
+          app.post '/pingable' do
+            redirect to('/') unless is_authenticated? 
+            @stats = Hash.new(0)
+            10.times do
+              @stats[:Yes] += 1 if Net::Ping::External.new(params['ip']).ping?
+              @stats[:No] += 1  unless Net::Ping::External.new(params['ip']).ping?
+            end
+            erb :ping_tool
           end
 
         end
