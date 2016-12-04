@@ -52,7 +52,6 @@ module Sinatra
             else
               @failed = "No file given to upload."
             end
-            binding.pry
             erb :statistics
           end
 
