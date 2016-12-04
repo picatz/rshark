@@ -12,6 +12,7 @@ require 'packetfu'
 require 'network_interface'
 require 'chartkick'
 require 'sinatra/reloader'
+require 'pcaprub'
 
 # Require Custom Application Files
 require_relative 'application/user'

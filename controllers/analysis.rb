@@ -57,6 +57,7 @@ module Sinatra
 
           app.get '/capture' do
             redirect to('/') unless is_authenticated?
+            binding.pry
             erb :capture
           end
 
@@ -83,7 +84,7 @@ module Sinatra
 
             # still need to manage other filters...
             session[:capture_file].start
-            #binding.pry
+            binding.pry
             @cap = session[:capture_file]
             erb :capturing
           end
