@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe SinatraBoilerplate do
+describe Rshark do
   it "has a version number" do
-    expect(SinatraBoilerplate::VERSION).not_to be nil
+    expect(Rshark::VERSION).not_to be nil
   end
 
   it "does something useful" do
