@@ -9,7 +9,7 @@ module Sinatra
             iface = PacketFu::Utils.default_int
             cap = PacketFu::Capture.new(:iface => iface)
             cap.start
-            sleep 1
+            sleep 2
             cap.save
             @capture_sample = cap.array
             erb :feed
@@ -57,36 +57,31 @@ module Sinatra
 
           app.get '/capture' do
             redirect to('/') unless is_authenticated?
-            binding.pry
             erb :capture
           end
 
           app.post '/capture' do
             redirect to('/') unless is_authenticated?
-            params.keys.each { |key| params[key].empty? ? params[key] = false : true }
-            if params['iface']
-              begin
-                session[:capture_file] = PacketFu::Capture.new(:iface => params["iface"])
-              rescue
-                @failed = "Unable to set network interface."
-              end
-            else
-              session[:capture_file] = PacketFu::Capture.new
-            end
-
-            if params['bpf']
-              begin
-                session[:capture_file].bpf(:filter => params['bpf'])
-              rescue
-                @failed = "Unable to set network interface / set berekley packet filter."
-              end
-            end
-
-            # still need to manage other filters...
-            session[:capture_file].start
-            binding.pry
-            @cap = session[:capture_file]
-            erb :capturing
+            # params.keys.each { |key| params[key].empty? ? params[key] = false : true }
+            # iface   = params['iface']   || PacketFu::Utils.default_int
+            # snaplen = params['snaplen'] || 65535
+            # capture = PCAPRUB::Pcap.open_live(iface, snaplen, true, 0)
+            # capture.setfilter(params['bpf'])  if params['bpf']
+            # @parsed_packets = []
+            # if params['cap_limit']
+            #   params['cap_limit'].to_i.times do
+            #     binding.pry
+            #     pkt = capture.next()
+            #     @parsed_packets << PacketFu::Packet.parse(pkt)
+            #   end
+            # else        
+            #   40.times do 
+            #     pkt = capture.next()
+            #     @parsed_packets << PacketFu::Packet.parse(pkt)
+            #   end
+            # end
+            # binding.pry
+            erb :capture
           end
 
           app.get '/capturing' do 

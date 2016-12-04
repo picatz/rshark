@@ -13,6 +13,7 @@ require 'network_interface'
 require 'chartkick'
 require 'sinatra/reloader'
 require 'pcaprub'
+require 'sinatra/streaming'
 
 # Require Custom Application Files
 require_relative 'application/user'
@@ -61,7 +62,8 @@ class Application < Sinatra::Base
   end
 
   configure do
-    enable :sessions
+    #enable :sessions
+    use Rack::Session::Cookie, secret: "insert a string here that's hard to guess and preferably 50+ characters long"
     enable :logging
     set :environment, :production
     set :bind, '0.0.0.0'
