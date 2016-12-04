@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h1>Statistics</h1>
+    <hr>
+    <% unless @stats %>
+      <form action='/statistics' method='post' enctype='multipart/form-data'>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-file"></i>
+            </span>
+            <input class="form-control" placeholder="libpcap-formatted file" name="file" type="file" autofocus>
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-lg btn-default" value="Generate Statistics">
+            </span>
+          </div>
+        </div>
+      </form>
+    <% else %>
+      <%= pie_chart(@stats) %>
+    <% end%>
+  </div>
+</div>
+
