@@ -30,13 +30,35 @@ body {
             <a class="navbar-brand" href="/"></span><font color = "ffffff"><strong> rshark</strong></font></a></div>
           <div class="collapse navbar-collapse" id="defaultNavbar1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/"><strong>Home</strong></a></li>
-              <li><a href="/about">About</a></li>
+              <li><a href="/">Home</a></li>
               <% if is_authenticated? %>
-                <li><a href="/ifconfig">Ifconfig</a></li>
-                <li><a href="/feed">Feed</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilities <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/ifconfig">Ifconfig</a></li>
+                    <li><a href="/network_interfaces">Network Interfaces</a></li>
+                    <li><a href="/pingable">Pingable</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/feed">Feed</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
                 <li><a href="/logout">Logout</a></li>
               <% else %>
+                <li><a href="/about">About</a></li>
                 <li><a href="/login">Login</a></li>
               <% end %>            
             </ul>

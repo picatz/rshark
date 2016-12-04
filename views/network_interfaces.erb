@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h1>Network Interfaces</h1>
+    <% @network_interface_info.each do |interface| %>
+      <hr>
+      <h4><%= interface[:name] %></h4>
+      <% if interface[:info][:mac_addr] %>
+        <% interface[:info][:mac_addr].each do |mac_addr| %>
+          <p>Mac address: <%= mac_addr["addr"].empty? ? "None" : mac_addr["addr"] %></p>
+        <% end %>
+      <% end %>
+
+      <% if interface[:info][:ipv4_addr] %>
+        <% interface[:info][:ipv4_addr].each do |ipv4_addr| %>
+          <p>Ipv4 address: <%= ipv4_addr["addr"].empty? ? "None" : ipv4_addr["addr"] %></p>
+        <% end %>
+      <% end %>
+
+      <% if interface[:info][:ipv6_addr] %>
+        <% interface[:info][:ipv6_addr].each do |ipv6_addr| %>
+          <p>Ipv6 address: <%= ipv6_addr["addr"].empty? ? "None" : ipv6_addr["addr"] %></p>
+        <% end %>
+      <% end %>
+
+    <% end %>
+  </div>
+</div>
+
