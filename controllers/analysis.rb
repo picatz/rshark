@@ -62,6 +62,7 @@ module Sinatra
 
           app.post '/capture' do
             redirect to('/') unless is_authenticated?
+            binding.pry
             # params.keys.each { |key| params[key].empty? ? params[key] = false : true }
             # iface   = params['iface']   || PacketFu::Utils.default_int
             # snaplen = params['snaplen'] || 65535

@@ -5,7 +5,6 @@
     <% if @stats %>
       <%= pie_chart(@stats, height: "600px")%> 
     <% else %>
-      <h4>Optional filters and options for capturing packets:</h4>
       <form action='/pingable' method='post' enctype='multipart/form-data'>
 
         <div class="form-group">

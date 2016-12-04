@@ -12,7 +12,11 @@ Boostrap 3.3.7 was choosen to act as our front-end framework to help thing look 
 
 ### Packetfu
 
-This application relies heavily on the work done by Tod Beardsley and the awesome contributors to the Packetfu ruby gem. It's an awesome library for reading and writing packets to an interface or to a libpcap-formatted file; and, in our case, allows us to inspect and anaylze packet information via an intuitive Ruby: API. .
+This application relies heavily on the work done by Tod Beardsley and the awesome contributors to the Packetfu ruby gem. It's an awesome library for reading and writing packets to an interface or to a libpcap-formatted file; and, in our case, allows us to inspect and anaylze packet information via an intuitive Ruby API.
+
+### Chartkick
+
+Chartkick provided beautiful, elegant Javascript charts with one line of Ruby. We loved discovering this library during my time figuring out how I wanted to display my packet anaylsis data to users. If Ruby isn't your thing, it is also available in Python, JavaScript, React, Vue.js, and Elixir.
 
 ## Installation
 
