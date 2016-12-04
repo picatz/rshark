@@ -3,7 +3,7 @@
    |   _||__     |     |  _  |   _||    <
    |__|  |_______|__|__|___._|__|  |__|__|
  
-   -----> ruby packet anaylsis tool <-----
+   -----> ruby packet analysis tool <-----
  
     O
       .  _________         .    .

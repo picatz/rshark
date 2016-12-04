@@ -10,6 +10,8 @@ require 'logger'
 require 'tilt/erubis'
 require 'packetfu'
 require 'network_interface'
+require 'chartkick'
+require 'sinatra/reloader'
 
 # Require Custom Application Files
 require_relative 'application/user'

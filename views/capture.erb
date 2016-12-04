@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h1>Capture Packets</h1>
+    <hr>
+    <form action='/capture/filter' method='post' enctype='multipart/form-data'>
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-filter"></i>
+          </span>
+          <input class="form-control" placeholder="BPF Syntax" name="bpf" type="text" autofocus>
+          <span class="input-group-btn">
+            <input type="submit" class="btn btn-lg btn-default" value="Set Filter">
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-wrench"></i>
+          </span>
+          <input class="form-control" placeholder="Network Interface" name="iface" type="text" autofocus>
+          <span class="input-group-btn">
+            <input type="submit" class="btn btn-lg btn-default" value="Set Interface">
+          </span>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+
+
